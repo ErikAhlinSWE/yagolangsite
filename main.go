@@ -50,10 +50,7 @@ func start(c *gin.Context) {
 	}
 	computerName, _ := os.Hostname()
 	c.HTML(http.StatusOK, "home.html",
-		&PageView{CurrentUser: currentUser,
-			PageTitle: "test",
-			Title:     "Hej Golang",
-			Text:      computerName})
+		&PageView{CurrentUser: currentUser, PageTitle: "test", Title: "Hej Golang", Text: computerName})
 }
 
 func secretfunc(c *gin.Context) {
@@ -63,7 +60,8 @@ func secretfunc(c *gin.Context) {
 	if user != nil {
 		currentUser = user.(string)
 	}
-	c.HTML(http.StatusOK, "secret.html", &PageView{CurrentUser: currentUser, PageTitle: "test", Title: "Hej Golang", Text: "hejsan"})
+	c.HTML(http.StatusOK, "secret.html",
+		&PageView{CurrentUser: currentUser, PageTitle: "test", Title: "Hej Golang", Text: "hejsan"})
 }
 
 func logout(c *gin.Context) {
